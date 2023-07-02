@@ -4,6 +4,7 @@ import { prettyJSON } from 'hono/pretty-json'
 import { etag } from 'hono/etag'
 
 import { r as userRoutes } from './routes/user'
+import env from './environment'
 
 // Create new instance
 const app = new Hono()
@@ -22,5 +23,5 @@ app.route('/users', userRoutes)
 
 serve({
   fetch: app.fetch,
-  port: 3000,
+  port: env.PORT,
 })

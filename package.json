@@ -7,7 +7,7 @@
     "scripts": {
         "dev": "ts-node-dev --respawn --transpile-only src/serve.ts",
         "start": "ts-node src/serve.ts",
-        "format": "next lint --fix && prettier --write \"**/*.{js,jsx,ts,tsx}\"",
+        "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
         "update-deps": "npx --yes npm-check-updates -x typescript --deep --interactive",
         "build:docker": "docker build --compress -t $npm_package_name:$npm_package_version",
         "db:introspect": "drizzle-kit introspect:pg --config=drizzle.config.ts",
@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "@hono/node-server": "^1.0.2",
+        "@hono/zod-validator": "^0.1.3",
         "dotenv": "^16.3.1",
         "drizzle-orm": "^0.27.0",
         "hono": "^3.2.7",
@@ -35,8 +36,8 @@
         "@types/pg": "^8.10.2",
         "drizzle-kit": "^0.19.3",
         "rimraf": "^5.0.1",
-        "ts-node-dev": "^2.0.0",
         "ts-node": "^10.9.1",
+        "ts-node-dev": "^2.0.0",
         "typescript": "^5.0.4"
     }
 }

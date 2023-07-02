@@ -4,6 +4,9 @@ dependencies:
   '@hono/node-server':
     specifier: ^1.0.2
     version: 1.0.2
+  '@hono/zod-validator':
+    specifier: ^0.1.3
+    version: 0.1.3(hono@3.2.7)(zod@3.21.4)
   dotenv:
     specifier: ^16.3.1
     version: 16.3.1
@@ -478,6 +481,16 @@ packages:
   /@hono/node-server@1.0.2:
     resolution: {integrity: sha512-j8oduBujeGN2+Zx8G1dp3yhiLrqCs/dMJp1wKSlXmMeAxpjVgUtYLaUjhY69lPVDyTjoBb3fmHXCX6e2iIgB9A==}
     engines: {node: '>=18.0.0'}
+    dev: false
+
+  /@hono/zod-validator@0.1.3(hono@3.2.7)(zod@3.21.4):
+    resolution: {integrity: sha512-g6dnqmkehV6VHjemJoWYwWqD/YwAl8awNJR2fxL8bqvPiYPvShycRZDrdHSpobgX61kaBc4n8mt0YJSHYvKbFQ==}
+    peerDependencies:
+      hono: 3.*
+      zod: ^3.19.1
+    dependencies:
+      hono: 3.2.7
+      zod: 3.21.4
     dev: false
 
   /@isaacs/cliui@8.0.2:

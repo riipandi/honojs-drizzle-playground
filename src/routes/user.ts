@@ -1,18 +1,26 @@
 import { Hono } from 'hono'
+import { z } from 'zod'
+import { zValidator } from '@hono/zod-validator'
+
 import { db } from '../database'
-import { User, userTable } from '../database/schema/user'
+import { User, NewUser, userTable } from '../database/schema/user'
 import { jsonResponse, throwResponse } from '../utils/response'
+
+// HTTP request validation schema
+const userRequest = z.object({
+  firstName: z.string(),
+  lastName: z.string(),
+  phone: z.number(),
+})
 
 export const r = new Hono()
 
 r.get('/', async (c) => {
   try {
     const allUsers: User[] = await db.select().from(userTable)
-    // return allUsers.length > 0
-    //   ? jsonResponse<User[]>(undefined, allUsers, 200)
-    //   : jsonResponse('No users found', undefined, 200)
-
-    return c.json<User[]>(allUsers)
+    return allUsers.length > 0
+      ? c.json<User[]>(allUsers)
+      : jsonResponse('No users found', undefined, 200)
   } catch (error: any) {
     return error instanceof Response
       ? throwResponse(error.status, error.statusText)
@@ -25,4 +33,10 @@ r.get('/:id', (c) => {
   return c.text('Get user: ' + id)
 })
 
-r.post('/', (c) => c.text('Create user'))
+r.post('/', zValidator('json', userRequest), (c) => {
+  const data = c.req.valid('json')
+  return c.json({
+    success: true,
+    message: `${data.firstName} phone number is: ${data.phone}`,
+  })
+})
