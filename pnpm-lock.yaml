@@ -22,6 +22,9 @@ dependencies:
   postgres:
     specifier: ^3.3.5
     version: 3.3.5
+  pure-uuid:
+    specifier: ^1.6.3
+    version: 1.6.3
   zennv:
     specifier: ^0.1.1
     version: 0.1.1
@@ -1514,6 +1517,11 @@ packages:
 
   /postgres@3.3.5:
     resolution: {integrity: sha512-+JD93VELV9gHkqpV5gdL5/70HdGtEw4/XE1S4BC8f1mcPmdib3K5XsKVbnR1XcAyC41zOnifJ+9YRKxdIsXiUw==}
+    dev: false
+
+  /pure-uuid@1.6.3:
+    resolution: {integrity: sha512-5cBiGtFWAulm5WwPWpUTjqJay6mJL5rm3Oru9vCXgwgWcoYtBEpjJbxjsWYVX7omr1jP5iw27lXUB6fDIdoOdw==}
+    engines: {node: '>=8.0.0'}
     dev: false
 
   /readdirp@3.6.0:
