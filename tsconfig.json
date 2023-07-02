@@ -1,0 +1,24 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "compilerOptions": {
+        "outDir": "dist",
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "strict": true,
+        // Drizzle
+        "target": "ES6",
+        "skipLibCheck": true,
+        "moduleResolution": "node",
+        "incremental": true,
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "."
+    },
+    "ts-node": {
+        "swc": false,
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules", "src/database/migration/*.ts"]
+}
